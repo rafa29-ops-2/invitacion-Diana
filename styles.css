@@ -1,0 +1,376 @@
+/* ============================================
+   VARIABLES GLOBALES — Paleta "Sweet 18 Glam"
+   blush + dorado + crema, elegante y femenino.
+   ============================================ */
+:root {
+  --cream:        #FFF9F3;
+  --cream-deep:   #FBEFE2;
+  --blush:        #F6D9DE;
+  --blush-deep:   #E8A9B8;
+  --gold:         #C9A227;
+  --gold-light:   #E8CE8B;
+  --gold-soft:    rgba(201,162,39,0.12);
+  --charcoal:     #2E2430;
+  --charcoal-soft:#6B5B66;
+  --white:        #FFFFFF;
+  --transition: all 0.3s ease;
+}
+
+/* ============================================
+   RESET Y BASE
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+section { padding: 6rem 2rem; }
+
+a, button, input[type="checkbox"], select, .info-card, .gallery-item {
+  cursor: pointer;
+}
+
+p strong { color: var(--gold); }
+
+/* ============================================
+   UTILIDADES COMPARTIDAS
+   ============================================ */
+.max-w { max-width: 1100px; margin: 0 auto; }
+
+.section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 5px;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: var(--charcoal);
+}
+
+/* ============================================
+   PARTÍCULAS FLOTANTES (destellos dorados)
+   ============================================ */
+.particle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: float-particle linear infinite;
+  opacity: 0;
+}
+
+@keyframes float-particle {
+  0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+  10%  { opacity: 0.8; }
+  90%  { opacity: 0.8; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+/* ============================================
+   SECCIÓN 1: HÉROE — arco de globos + emblema
+   ============================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  background: radial-gradient(ellipse 80% 60% at 50% 20%, var(--cream-deep) 0%, var(--cream) 70%);
+}
+
+.hero-sparkles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.5;
+  background-image: radial-gradient(circle, var(--gold-light) 1px, transparent 1.5px);
+  background-size: 46px 46px;
+}
+
+.balloon-arch {
+  position: absolute;
+  top: -60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.balloon-arch span {
+  width: clamp(28px, 5vw, 46px);
+  height: clamp(36px, 6.5vw, 60px);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: inset -6px -6px 12px rgba(0,0,0,0.08);
+}
+
+.balloon-arch span:nth-child(3n+1) { background: var(--blush-deep); transform: translateY(10px); }
+.balloon-arch span:nth-child(3n+2) { background: var(--gold-light); transform: translateY(-8px); }
+.balloon-arch span:nth-child(3n)   { background: var(--white); transform: translateY(4px); }
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  margin-top: 3rem;
+}
+
+.age-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--charcoal);
+  color: var(--gold-light);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  padding: 8px 22px;
+  border-radius: 100px;
+  margin-bottom: 1.8rem;
+  animation: pulse-badge 2.6s infinite;
+}
+
+@keyframes pulse-badge {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(46,36,48,0.25); }
+  50% { box-shadow: 0 0 0 10px rgba(46,36,48,0); }
+}
+
+.hero-emblem {
+  width: clamp(90px, 14vw, 130px);
+  height: clamp(90px, 14vw, 130px);
+  margin: 0 auto 1.5rem;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  color: var(--gold);
+  position: relative;
+}
+
+.hero-emblem::before, .hero-emblem::after {
+  content: '✦';
+  position: absolute;
+  color: var(--gold-light);
+  font-size: 0.9rem;
+}
+.hero-emblem::before { top: -4px; right: 10px; }
+.hero-emblem::after { bottom: -2px; left: 8px; }
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(3.2rem, 10vw, 6.5rem);
+  line-height: 1;
+  color: var(--charcoal);
+}
+
+.hero-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 2.4vw, 1.2rem);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 1rem;
+}
+
+.hero-banner {
+  display: inline-block;
+  margin-top: 1.8rem;
+  background: transparent;
+  color: var(--charcoal-soft);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  padding: 0.5rem 1.6rem;
+  border-top: 1px solid var(--gold-light);
+  border-bottom: 1px solid var(--gold-light);
+}
+
+.hero-date {
+  margin-top: 1.8rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 2.6vw, 1.3rem);
+  color: var(--charcoal);
+  letter-spacing: 2px;
+}
+
+.hero-date span {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.95em;
+  letter-spacing: 3px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--charcoal-soft);
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  z-index: 2;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* ============================================
+   SECCIÓN: MAPA
+   ============================================ */
+.map-section { background: var(--blush); }
+
+.map-address { color: var(--charcoal-soft); margin-bottom: 1.5rem; font-size: 0.95rem; font-weight: 500; }
+
+.map-container {
+  border-radius: 4px; overflow: hidden;
+  border: 8px solid var(--white);
+  box-shadow: 0 16px 40px rgba(46,36,48,0.1);
+}
+
+.map-container iframe {
+  width: 100%; height: 420px; border: 0;
+}
+
+.map-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+
+.map-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.8rem 1.6rem; border-radius: 100px;
+  font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: var(--transition);
+}
+
+.map-btn--primary {
+  background: var(--charcoal); color: var(--gold-light);
+}
+
+.map-btn--primary:hover { background: #443A46; transform: translateY(-2px); }
+
+.map-btn--secondary {
+  background: var(--white); border: 1px solid var(--gold-light); color: var(--charcoal);
+}
+
+.map-btn--secondary:hover { background: var(--cream-deep); }
+
+/* ============================================
+   SECCIÓN 7: FORMULARIO (SIMPLE)
+   ============================================ */
+.form-section { background: var(--cream); position: relative; overflow: hidden; }
+
+.form-section::after {
+  content: ''; position: absolute; bottom: -100px; right: -100px; width: 400px; height: 400px;
+  background: radial-gradient(circle, var(--gold-soft) 0%, transparent 70%);
+}
+
+.form-wrap { max-width: 560px; margin: 0 auto; position: relative; z-index: 1; }
+
+.form-intro {
+  background: var(--white); border: 1px solid var(--gold-soft); border-radius: 4px;
+  padding: 1.2rem 1.8rem; margin-bottom: 2rem; display: flex; gap: 1.2rem; align-items: center;
+}
+
+.form-intro-icon { font-size: 1.8rem; flex-shrink: 0; color: var(--gold); }
+
+.form-intro p { font-size: 0.9rem; line-height: 1.5; color: var(--charcoal-soft); }
+
+.form-group { margin-bottom: 1.4rem; }
+
+.form-group label {
+  display: block; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--charcoal-soft); margin-bottom: 0.5rem; font-weight: 600;
+}
+
+.form-group input, .form-group select {
+  width: 100%; background: var(--white); border: 1.5px solid var(--gold-soft);
+  border-radius: 4px; padding: 1rem; color: var(--charcoal);
+  font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 1rem; transition: var(--transition);
+  outline: none; -webkit-appearance: none;
+}
+
+.form-group input:focus, .form-group select:focus {
+  border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft);
+}
+
+.btn-primary {
+  width: 100%; background: var(--charcoal); color: var(--gold-light); border: none; border-radius: 4px;
+  padding: 1.2rem; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: 3px;
+  transition: var(--transition); margin-top: 0.5rem; text-transform: uppercase;
+}
+
+.btn-primary:hover { background: #443A46; transform: translateY(-2px); }
+
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.form-note { text-align: center; color: var(--charcoal-soft); font-size: 0.78rem; margin-top: 1rem; }
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  text-align: center; padding: 3rem 2rem; background: var(--charcoal); color: rgba(255,255,255,0.6);
+}
+
+.footer-brand { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-style: italic; font-size: 1.4rem; color: var(--gold-light); letter-spacing: 1px; margin-bottom: 0.5rem; }
+
+.footer-age { color: var(--gold); margin-top: 0.4rem; font-weight: 600; letter-spacing: 1px; }
+
+/* ============================================
+   RESPONSIVO
+   ============================================ */
+@media (max-width: 600px) {
+  section { padding: 3.5rem 1.25rem; }
+  .balloon-arch span { width: 20px; height: 28px; }
+  .balloon-arch { gap: 3px; top: -40px; }
+  .map-container iframe { height: 300px; }
+  .form-intro { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 380px) {
+  .hero h1 { letter-spacing: -1px; }
+  .hero-emblem { width: 80px; height: 80px; font-size: 2rem; }
+  section { padding: 3rem 1rem; }
+  .balloon-arch span { width: 16px; height: 22px; }
+}

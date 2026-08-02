@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diana Méndez — Sweet 18 ✦</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-sparkles"></div>
+    <div class="balloon-arch">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+
+    <div class="hero-content">
+      <div class="age-badge">✦ UNA NOCHE PARA RECORDAR ✦</div>
+      <div class="hero-emblem">18</div>
+      <h1>Diana<br>Méndez</h1>
+      <p class="hero-sub">Mis 18 años</p>
+      <div class="hero-banner">Acompáñame a celebrar</div>
+      <!-- ⬇️ Aquí puedes ajustar la hora si hace falta -->
+      <p class="hero-date">
+  SÁBADO 29 DE AGOSTO<br>
+  <span>5:30 P.M.</span>
+</p>
+    </div>
+    <div class="scroll-hint">DESLIZA ↓</div>
+  </section>
+
+  <section class="map-section">
+    <div class="max-w">
+      <p class="section-label">✦ Cómo llegar</p>
+      <h2 class="section-title">Ubicación</h2>
+      <!-- ⬇️ Cambia esta dirección por la real de tu evento -->
+      <p class="map-address">Ubicación por confirmar</p>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.617540954082!2d-74.00282062343213!3d40.75163153538466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259b662867e3d%3A0xe5a363d9171b48d2!2s30%20Hudson%20Yards!5e0!3m2!1ses!2sus!4v1700000000000!5m2!1ses!2sus"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación del evento">
+        </iframe>
+      </div>
+      <!-- ⬇️ Cambia estos links por los de tu ubicación real en Google/Apple Maps -->
+      <div class="map-buttons">
+        <a href="https://maps.app.goo.gl/GeQPZiUt2qECSua3A" target="_blank" class="map-btn map-btn--primary">
+          ✦ Abrir en Maps
+        </a>
+        <a href="maps://?q=" target="_blank" class="map-btn map-btn--secondary">
+          🍎 Abrir en Apple Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section" id="registro">
+    <div class="form-wrap">
+      <p class="section-label">✦ RSVP</p>
+      <h2 class="section-title">Confirma tu Asistencia</h2>
+
+      <div class="form-intro">
+        <div class="form-intro-icon">✦</div>
+        <p>Solo cuéntame si vienes y quiénes son. ¡Así puedo prepararte un lugar especial!</p>
+      </div>
+
+      <div id="form-container">
+        <div class="form-group">
+          <label for="f-attendance">¿Asistirás? *</label>
+          <select id="f-attendance" onchange="toggleAttendanceFields()" required>
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="si">✦ ¡Sí, ahí estaré!</option>
+            <option value="no">✦ No podré asistir</option>
+          </select>
+        </div>
+
+        <div id="attendance-details" style="display:none;">
+          <div class="form-group">
+            <label for="f-name">Tu Nombre *</label>
+            <input type="text" id="f-name" placeholder="¿Quién viene?">
+          </div>
+          <div class="form-group">
+            <label for="f-guests">¿Cuántos acompañantes? (opcional)</label>
+            <select id="f-guests">
+              <option value="0">Voy sola/solo</option>
+              <option value="1">1 acompañante</option>
+              <option value="2">2 acompañantes</option>
+              <option value="3">3 acompañantes</option>
+              <option value="4">4 acompañantes</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn-primary" id="submit-btn" onclick="submitForm()">
+          CONFIRMAR →
+        </button>
+        <p class="form-note">Recibirás tu ticket digital al confirmar ✦</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-brand">Diana Méndez × 18 vueltas al sol ❤️</div>
+    <p>Evento privado por invitación</p>
+    <p class="footer-age">✦ ¡Los espero!</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
